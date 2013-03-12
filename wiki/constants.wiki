@@ -78,6 +78,24 @@ In this example,
 }}}
 the string is 11 characters long in the default language. The string 'Intro' is a key for localisation. If this key is not present, then the string is not localisable.
 
+= guid =
+{{{
+uphex = digit | "A".."F";
+uphex 4 = uphex | uphex | uphex | uphex;
+uphex 8 = uphex 4 | uphex 4;
+uphex 12 = uphex 8 | uphex 4;
+literal guid = "_guid" , s , uphex 4 , "-", uphex 4 , "-", uphex 4 , "-", uphex 12 , "_";
+}}}
+Example
+In pascali, this literal...
+{{{
+_guid 3F2504E0-4F89-11D3-9A0C-0305E82C3301_
+}}}
+... means this guid...
+{{{
+{3F2504E0-4F89-11D3-9A0C-0305E82C3301}
+}}}
+
 = TODO =
 * guid
 * array
