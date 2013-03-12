@@ -13,5 +13,5 @@ This grammar is defined using the notation given by ISO/IEC 14977 : 1996(E) 1st 
  # Unicode version. This definition uses the unicode database version 6.2. Programs in the Pascali language can use any version of the unicode database from 6.2 upwards.
 
 = Table of contents =
-* [characters]
-* [constants]
+ * [characters]
+ * [constants]
