@@ -50,8 +50,10 @@ literal char = literal simple char | literal apos char | literal utf-8 char | li
 }}}
 
 = strings =
+{{{
 literal non-localised string line = "'" , {(char - (eoln | "'")) | "''"} , "'";
 literal non-localised heredoc = short identifier , eoln , {char} , short identifier , eoln;
 literal long non-localised string = literal non-localised string line | literal non-localised heredoc;
 literal non-localised string = { char , long non-localised string };
 string = non-localised string , [">" , short identifier]; 
+}}}
