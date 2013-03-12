@@ -130,15 +130,25 @@ attri-name = ?xml qname?;
 literal attribute = "_@" , s , attri-name , [s] , "=" , [s] , literal string , [s] , "_";
 }}}
 
+= xml text node =
+An xml text node is similar to a string. It is different only in that
+it is designated as a string, and that it may not be empty.
+{{{
+literal xml text node = "_text" , s , literal string , s , "_";
+}}}
+
+= xml namespace =
+{{{
+ns prefix = ?Any valid xml namespace prefix.?"
+literal namespace = "_ns" , s , "xmlns:" , ns prefix , "=" , literal string , s "_";
+}}}
+
 = TODO =
+ * xml comment
+ * xml pi
  * array
  * sequence
  * record
- * xml namespace
- * xml attribute
- * xml text-node
- * xml comment
- * xml pi
  * regex
  * xpath
  * xslt transform 
