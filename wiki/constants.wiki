@@ -74,6 +74,6 @@ It has two lines. The second line is NOT terminated by a new-line character. The
 
 In this example,
 {{{
-'Hello'#SP'world'
-}}}>Intro
+'Hello'#SP'world'>Intro
+}}}
 the string is 11 characters long in the default language. The string 'Intro' is a key for localisation. If this key is not present, then the string is not localisable.
