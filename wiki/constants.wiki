@@ -28,5 +28,10 @@ literal float = normal literal float | NaN | INF | negative INF;
 
 = binary coded decimal values =
 {{{
-bcd = literal base 10 integer , [ "." , digit , {digit}];
+literal bcd = literal base 10 integer , [ "." , digit , {digit}];
 }}}
+
+= boolean =
+literal False = "False";
+literal True = "True";
+literal boolean = literal False | literal True;
