@@ -1,0 +1,11 @@
+{{{
+lowercase letter = "a" .. "z";
+uppercase letter = "A" .. "Z";
+letter = lowercase letter | uppercase letter;
+one s = U+0020 | U+0009 | U+000D | U+000A;
+s = one s , {one s};
+digit = "0" .. "9";
+hex = digit | ("a".."f") | ("A".."F");
+alphanumeric = letter | digit;
+char = +U0001 .. +UFFFFF;
+}}}
