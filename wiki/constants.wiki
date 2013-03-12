@@ -111,16 +111,23 @@ xml document = ?A lexical xml document, either 1.0 fifth edition,
 literal document = "_doc" , s , xml document "_";
 }}}
 If an xml decl is present, then
- * standalone must be absent or set to yes.
+ * standalone must be absent.
  * the encoding pseudo attribute must be absent.
 No DTD's are permitted, neither internal nor external. No entities are permitted except character entities and inbuilt xml entities.
-Any underscore characters in the document must be escaped as double underscore (__). The final _ must not be followed by another _.
+Any underscore characters in the document must be escaped as double underscore (`_`_). The final `_ must not be followed by another `_.
+
+= xml element =
+A literal xml element node, with no parent, may be written as...
+{{{
+literal element = "_*" , s , ["version=""1." , ("1"|"0") , """"] , s , xml element , "_";
+xml element = ?Lexical xml encoding of an element.?;
+}}}
+The element must be stand-alone in terms of namespaces prefixes. The literal element must not be followed by an underscore, and any underscores in the content must be escaped as doubles.
 
 = TODO =
  * array
  * sequence
  * record
- * xml element
  * xml namespace
  * xml attribute
  * xml text-node
