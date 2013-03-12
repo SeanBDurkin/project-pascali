@@ -70,4 +70,10 @@ but when there is nothing left to take away.
 Banana
 }}}
 
-It has two lines. The second line is NOT terminated by a new-line character.
+It has two lines. The second line is NOT terminated by a new-line character. The single new-line character after "add," is U+000A . The heredoc introducer identifier (in this example "Banana"), must match case-sensitively to the terminating identifier, and may not be present in the content of the heredoc string.
+
+In this example,
+{{{
+'Hello'#SP'world'
+}}}>Intro
+the string is 11 characters long in the default language. The string 'Intro' is a key for localisation. If this key is not present, then the string is not localisable.
