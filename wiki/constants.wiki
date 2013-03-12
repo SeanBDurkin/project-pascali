@@ -53,10 +53,21 @@ literal char = literal simple char | literal apos char | literal hash char;
 = strings =
 {{{
 literal non-localised string line = "'" , {(char - (eoln | "'")) | "''"} , "'";
-literal non-localised heredoc = short identifier , eoln , {char} , short identifier , eoln;
+literal non-localised heredoc = "<<<" , short identifier , eoln , {char} , eoln , short identifier , eoln;
 literal long non-localised string = literal non-localised string line | literal non-localised heredoc;
 lnls long = literal long non-localised string , [lnls short];
 lnls short = literal hash char , [lnls long | lnls short]; 
 literal non-localised string = lnls long | lnls short;
 string = non-localised string , [">" , short identifier]; 
 }}}
+
+== Example literal strings ==
+Here is an example of a heredoc literal string.
+{{{
+<<<Banana
+Perfection is achieved, not when there is nothing more to add,
+but when there is nothing left to take away.
+Banana
+}}}
+
+It has two lines. The second line is NOT terminated by a new-line character.
