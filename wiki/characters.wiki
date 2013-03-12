@@ -8,4 +8,10 @@ digit = "0" .. "9";
 hex = digit | ("a".."f") | ("A".."F");
 alphanumeric = letter | digit;
 char = +U0001 .. +UFFFFF;
+
+identifier step part = alphanumeric, {alphanumeric};
+initial identifier step part = letter, {alphanumeric};
+short identifier = initial identifier step part , { "-" , identifier step part};
+identifier = short identifier , { "." , short identifier};
+(* Identifiers are case insensitive. *)
 }}}
