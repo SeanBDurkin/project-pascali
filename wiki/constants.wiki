@@ -24,3 +24,9 @@ INF = "INF";
 negative INF = s , "-INF";
 literal float = normal literal float | NaN | INF | negative INF;
 }}}
+
+
+= binary coded decimal values =
+{{{
+bcd = literal base 10 integer , [ "." , digit , {digit}];
+}}}
