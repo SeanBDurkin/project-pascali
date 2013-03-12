@@ -55,6 +55,8 @@ literal char = literal simple char | literal apos char | literal hash char;
 literal non-localised string line = "'" , {(char - (eoln | "'")) | "''"} , "'";
 literal non-localised heredoc = short identifier , eoln , {char} , short identifier , eoln;
 literal long non-localised string = literal non-localised string line | literal non-localised heredoc;
-literal non-localised string = { literal hash char | long non-localised string };
+lnls long = literal long non-localised string , [lnls short];
+lnls short = literal hash char , [lnls long | lnls short]; 
+literal non-localised string = lnls long | lnls short;
 string = non-localised string , [">" , short identifier]; 
 }}}
