@@ -14,3 +14,13 @@ Here are two literal integers
 -00568989
 $AF
 }}}
+
+= floats =
+{{{
+normal literal float = literal base 10 integer , [ "." , digit , {digit}] ,
+              [("e"|"E") , ["-"] , digit , {digit}];
+NaN = "NaN";
+INF = "INF";
+negative INF = s , "-INF";
+literal float = normal literal float | NaN | INF | negative INF;
+}}}
