@@ -77,3 +77,22 @@ In this example,
 'Hello'#SP'world'>Intro
 }}}
 the string is 11 characters long in the default language. The string 'Intro' is a key for localisation. If this key is not present, then the string is not localisable.
+
+= TODO =
+* guid
+* array
+* sequence
+* record
+* nil
+* xml document
+* xml element
+* xml namespace
+* xml attribute
+* xml text-node
+* xml comment
+* xml pi
+* regex
+* xpath
+* xslt transform
+* xsd schema
+* xpath anonymous function
