@@ -1,0 +1,16 @@
+= literal integers =
+{{{
+literal base 10 integer = [s , "-"] , digit , {digit};
+literal base 16 integer = [s , "-"] , "$" , hex , {hex};
+literal base X integer = [s , "-"] , "$$" , digit , [digit] , "/" , alphanumeric , {alphanumeric};
+(* The two digits in the above specify the base which may range from 2..36 . *)
+literal integer = literal base 10 integer | literal base 16 integer | literal base X integer;
+(* Literal integers may not exceed the range -2^127 .. (2^128)-1 *)
+}}}
+
+== Examples ==
+Here are two literal integers
+{{{
+-00568989
+$AF
+}}}
