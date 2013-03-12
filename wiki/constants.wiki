@@ -37,3 +37,14 @@ literal False = "False";
 literal True = "True";
 literal boolean = literal False | literal True;
 }}}
+
+= literal characters =
+{{{
+eoln = ? end-of-line mark or new-line characater. ?;
+literal simple char = "'" , (char - (eoln | "'")) , "'";
+literal apos char = "''''";
+literal utf-8 char = "#" , hex , hex;
+literal utf-16 char = "#" , hex , hex , hex , hex;
+literal special char = "#CR" | "#LF" | "#TAB" | "#SP" | #NULL;
+literal char = literal simple char | literal apos char | literal utf-8 char | literal utf-16 char | literal special char;
+}}}
