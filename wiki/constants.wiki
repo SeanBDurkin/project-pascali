@@ -86,6 +86,7 @@ uphex 8 = uphex 4 | uphex 4;
 uphex 12 = uphex 8 | uphex 4;
 literal guid = "_guid" , s , uphex 4 , "-", uphex 4 , "-", uphex 4 , "-", uphex 12 , "_";
 }}}
+The final _ must not be followed by another _.
 Example
 In pascali, this literal...
 {{{
@@ -96,21 +97,37 @@ _guid 3F2504E0-4F89-11D3-9A0C-0305E82C3301_
 {3F2504E0-4F89-11D3-9A0C-0305E82C3301}
 }}}
 
+= nil =
+Nil is a constant.
+{{{
+literal nil = "nil";
+}}}
+
+= xml document =
+Document is a fundamental type in pascali. You can literal specify a constant document like so...
+{{{
+xml document = ?A lexical xml document, either 1.0 fifth edition,
+ or 1.1 second edition. XML namespaces 1.1 second edition applies.?;
+literal document = "_doc" , s , xml document "_";
+}}}
+If an xml decl is present, then
+ * standalone must be absent or set to yes.
+ * the encoding pseudo attribute must be absent.
+No DTD's are permitted, neither internal nor external. No entities are permitted except character entities and inbuilt xml entities.
+Any underscore characters in the document must be escaped as double underscore (__). The final _ must not be followed by another _.
+
 = TODO =
-* guid
-* array
-* sequence
-* record
-* nil
-* xml document
-* xml element
-* xml namespace
-* xml attribute
-* xml text-node
-* xml comment
-* xml pi
-* regex
-* xpath
-* xslt transform
-* xsd schema
-* xpath anonymous function
+ * array
+ * sequence
+ * record
+ * xml element
+ * xml namespace
+ * xml attribute
+ * xml text-node
+ * xml comment
+ * xml pi
+ * regex
+ * xpath
+ * xslt transform 
+ * xsd schema
+ * xpath anonymous function
