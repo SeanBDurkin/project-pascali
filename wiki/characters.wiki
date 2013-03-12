@@ -15,3 +15,9 @@ short identifier = initial identifier step part , { "-" , identifier step part};
 identifier = short identifier , { "." , short identifier};
 (* Identifiers are case insensitive. *)
 }}}
+
+= Example =
+Here is an example identifer
+{{{
+fruit-box.piece1
+}}}
