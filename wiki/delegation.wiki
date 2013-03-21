@@ -29,3 +29,35 @@ begin
 FBase.MethodA
 end;
 }}}
+
+=Interface delegation=
+The delgate attribute can also be applied to an interface data member (or readable property)
+
+{{{
+IIntf = interface
+    procedure IntMeth1;
+    procedure IntMeth2;
+    ….
+    procedure IntMeth10;
+  end;
+
+TBlueberryPie = class( TPie, IIntf)
+  private
+    [delegate] FBase: IIntf;
+  private
+    procedure IntMeth2;
+  public
+    constructor Create( NumOfBerries: integer; BasePie: TPie);
+  end;
+}}}
+
+It is an error if the base class does not explicitly support the delegate interface pointer type. Any methods of the base interface pointer type that are not explicitly declared are implicitly defined as being declared with private and delegating the function to the delegate data member or property.
+
+For example, in the above, this is implied...
+
+{{{
+procedure TBlueberryPie.IntMeth1;
+begin
+FBase.IntMeth1
+end;
+}}}
