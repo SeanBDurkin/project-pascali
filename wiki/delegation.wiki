@@ -1,0 +1,31 @@
+=Class delegation=
+The `[`delegate`]` attribute is a special in-built attribute. A class delegation looks like this ...
+
+{{{
+TPie = class
+  public
+    procedure MethodA;                virtual;
+    function MethodB: integer;      virtual;
+    constructor Create;
+  end;
+
+TBlueberryPie = class( TPie)
+  private
+    [delegate] FBasePie: TPie;
+  public
+    function MethodB: integer;     override;
+  public
+    constructor Create( NumOfBerries: integer; BasePie: TPie);
+  end;
+}}}
+
+The `[`delegate`]` attribute on a class data member (or readable class property) with a class type will have the effect of implying certain method declarations and implementations. The [delegate] attribute may only be used in a pascali solution.
+
+If there are any explicitly abstract methods in the class (TPie in the above example) that are methods of the nearest common ancestor of the base class and the delegate class, there there is an implicit declaration and implementation as such...
+
+{{{
+procedure TBlueberryPie.MethodA;
+begin
+FBase.MethodA
+end;
+}}}
