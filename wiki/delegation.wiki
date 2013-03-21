@@ -65,7 +65,7 @@ end;
 =Union delegate=
 The union-delegate attribute is a special inbuilt attribute which may only be used in pascali solutions. Applying to an IList`<T>`, where type T is an interface pointer type, it makes the following implicit declarations.
 
- * Declares another interface pointer type (name of first parameter, guild of second), which includes all the methods of the base interface, but with 'ForEach-' prefixed on the names of the methods and properties.
+ * Declares another interface pointer type (name of first parameter, guild of second), which includes all the methods of the base interface, but with `'ForEach-'` prefixed on the names of the methods and properties.
  * Add methods Enlist(), Delist(), operator "+" and operator "-" to the union interface pointer type. These methods have signature as indicated in the following example.
  * Implicitly declares explicitly missing methods, and abstract methods of the union interface pointer, in the style of an observer pattern, as indicated in the following example.
 
