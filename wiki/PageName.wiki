@@ -15,3 +15,4 @@ This grammar is defined using the notation given by ISO/IEC 14977 : 1996(E) 1st 
 = Table of contents =
  * [characters]
  * [constants]
+ * [delegation]
