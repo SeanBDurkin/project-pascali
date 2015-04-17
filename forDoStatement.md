@@ -1,0 +1,69 @@
+# Some terminology #
+**Member is the object, record or interface which is traversing over some enumerable range.** Member type is the type of the member, as the compiler sees the for-do statement. It is the implied declared type of the member variable.
+**Cursor is the object, record or interface representing the state of traversal in the enumerable range. This is returned by the GetEnumerator() function of the Enumerable range.** Cursor type is the declared type of the GetEnumerator() function.
+**Enumerable range is the object, record or interface representing a list of items which could be traversed.** Enumerable range type is the declared type of the Enumerable range.
+
+# Record enumerator #
+A cursor type has a minimum signature of...
+```
+record
+  function  MoveNext: boolean;
+  function  Current: <T>
+  procedure SetCurrent( const NewValue: <T>);
+end;
+```
+
+## SetCurrent() ##
+
+A writeable cursor, in addition, has signature...
+```
+record
+  procedure SetCurrent( const NewValue: <T>);
+end;
+```
+
+where `<T>` is the member type.
+
+# Object enumerator #
+
+# Interface enumerator #
+
+# Record enumerable #
+```
+record
+  function GetEnumerator: ???
+end;
+```
+
+## Reverse option ##
+```
+record
+  function GetEnumerator( goForward: boolean): ???
+end;
+```
+
+# Object enumerable #
+
+# Interface enumerable #
+
+# for-do grammar #
+```
+for-do statement = ["parallel" , s] , "for" , s , identifier , s , "in" , s , enumeration expression , s , ["reverse" , s] , "do" , statement;
+enumeration expression = enumerable record expression | enumerable object expression | enumerable interface expression | array expression | ordinal range;
+ordinal range = ordinal , s , ("to" | "downto") , "s" ordinal;
+enumerable record expression = ?Expression which at compile-time resolves to a record which contains a function 'GetEnumerator()'?;
+enumerable object expression = ?Expression which at compile-time resolves to an object who's class contains a function method 'GetEnumerator(). The exposure level of the method must be in-scope at the point of the expression.?;
+enumerable interface expression = ?Expression which at compile-time resolves to an interface pointer who's type contains a function 'GetEnumerator()?;
+array expression = ?An array or string?;
+ordinal value = ?Any ordinal value castable to either int64 or uint64 without range error.?;
+```
+
+
+## Reverse option ##
+
+**cant use reverse if...** used downto
+**using enumerable and there is no GetEnumerator() function with one boolean parameter.** used parallel
+
+
+## Parallel option ##
+**cant use parallel if...** in a unit. parallel is for use in solution only.

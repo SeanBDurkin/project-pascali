@@ -1,0 +1,24 @@
+
+```
+lowercase letter = "a" .. "z";
+uppercase letter = "A" .. "Z";
+letter = lowercase letter | uppercase letter;
+one s = U+0020 | U+0009 | U+000D | U+000A;
+s = one s , {one s};
+digit = "0" .. "9";
+hex = digit | ("a".."f") | ("A".."F");
+alphanumeric = letter | digit;
+char = +U0001 .. +UFFFFF;
+
+identifier step part = alphanumeric, {alphanumeric};
+initial identifier step part = letter, {alphanumeric};
+short identifier = initial identifier step part , { "-" , identifier step part};
+identifier = short identifier , { "." , short identifier};
+(* Identifiers are case insensitive. *)
+```
+
+# Example #
+Here is an example identifer
+```
+fruit-box.piece1
+```

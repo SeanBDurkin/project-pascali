@@ -1,0 +1,20 @@
+# Introduction #
+
+This grammar is defined using the notation given by ISO/IEC 14977 : 1996(E) 1st edition, with the following exceptions/extensions:
+  1. Character range.
+> > A characater range can be defined like so...
+> > > some letters = "a" .. "d";
+
+> > This would be equivalent to
+> > > some letters = "a" | "b" | "c" | "d";
+  1. Unicode character
+
+> > Unicode characters can be defined using the unicode notation for character by codepoint number like so...
+> > > apos = U+0027;
+  1. Unicode version. This definition uses the unicode database version 6.2. Programs in the Pascali language can use any version of the unicode database from 6.2 upwards.
+
+# Table of contents #
+  * [characters](characters.md)
+  * [constants](constants.md)
+  * [delegation](delegation.md)
+  * [forDoStatement](forDoStatement.md)
